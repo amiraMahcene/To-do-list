@@ -13,23 +13,23 @@
         <div class="left-continer">
            <div class="main">
                <h1>My To Do List <i class="fab fa-angellist"></i></h1>
-               <ul>
-                   <li>
+               <ul id="ul"> 
+                   <li > 
                        Learn Javascript 
-                       <i class="fas fa-check"></i>
+                     
                      </li>
                    <li>
                        Watch Anime
-                       <i class="fas fa-check"></i>
+                      
                    </li>
                    <li>
                        Practice Html/css
-                       <i class="fas fa-check"></i>
+                     
                     </li>
                </ul>
                <div class="inputtext">
-                   <input type="text" placeholder="Build Our Future">
-                   <button><i class="fas fa-location-arrow"></i></button>
+                   <input type="text" placeholder="Build Our Future" id="inp" value="">
+                   <button onclick="Add()"> <i class="fas fa-location-arrow"></i></button>
                </div>
            </div>
         </div>   
@@ -41,7 +41,64 @@
 
 
     <script>
+       
 
+
+   
+
+      
+
+               var myNodelist = document.getElementsByTagName("LI");
+       var i;
+       for (i = 0; i < myNodelist.length; i++) 
+       {
+       var span = document.createElement("SPAN");
+       var txt = document.createTextNode("\u2713");
+       span.className = "close";
+       span.appendChild(txt);
+       myNodelist[i].appendChild(span);
+    
+      }
+      function Add()
+       {
+          
+               let li = document.createElement('li');
+               let inputValue = document.getElementById('inp').value;
+               let Text = document.createTextNode(inputValue);
+               li.appendChild(Text);
+               if(inputValue === "")
+               {
+                   alert( "You must write something ....");
+               }
+               else
+               {
+                   let ul = document.getElementById('ul');
+                   ul.appendChild(li);
+                   let check = document.createElement("i");
+                   li.appendChild(i);
+                   
+               }
+
+               document.getElementsById("inp").value = "";
+               let span = document.createElement('span');
+               let text = document.createTreeWalker('\u2713');
+               span.className('close');
+               span.appendChild(text);
+               li.appendChild(span);
+               for (i = 0; i < close.length; i++) 
+               {
+                 close[i].onclick = function() {
+                 var div = this.parentElement;
+                 div.style.display = "none";
+               }
+               
+       }
+    }
+
+            
+ 
+
+    
     </script>
 </body>
 </html>
